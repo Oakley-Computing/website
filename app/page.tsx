@@ -12,7 +12,7 @@ export default function Page() {
         "use server"
         const create_thread_result: ApiResult<{ thread_id: number }> = await create_thread()
         if (create_thread_result.ok) {
-            redirect(`/thread/${create_thread_result.response.thread_id}`)
+            redirect(`/threads/${create_thread_result.response.thread_id}`)
         } else { form_data.set("PROMPT", ""); console.log(create_thread_result.status) }
     }
     return <Dashboard>
