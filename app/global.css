@@ -1,0 +1,12 @@
+/* Copyright Rob Gage 2025 */
+
+@import "tailwindcss";
+
+@theme {
+    --color-dark: #0a0f0d;
+    --color-light: #f7f7f7;
+    --color-neutral-dark: #36363B;
+    --color-neutral-light: #c1d3d3;
+    --color-primary: #386641;
+    --color-secondary: #9ebf51;
+}

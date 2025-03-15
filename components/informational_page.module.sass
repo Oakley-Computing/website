@@ -1,0 +1,25 @@
+// Copyright Rob Gage 2025
+
+// Determines the minimum and maximum dynamic width of the page container
+$minimum_width: 400px
+$maximum_width: 1000px
+
+#container
+  box-sizing: border-box
+  width: $minimum_width
+  margin: 0
+  margin-left: auto
+  margin-right: auto
+  padding: 2em
+
+@media (min-width: $minimum_width)
+  #container
+    width: 100%
+
+@media (min-width: $maximum_width)
+  #container
+    width: $maximum_width
+
+#container h1
+  font-size: 3em
+  text-align: center

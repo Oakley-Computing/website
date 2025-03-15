@@ -1,0 +1,45 @@
+// Copyright Rob Gage 2025
+
+// Determines the minimum and maximum sizes of the header
+$maximum_height: 90px
+$minimum_height: 60px
+
+#container
+  align-items: center
+  box-sizing: border-box
+  display: flex
+  flex-direction: row
+  height: 8vh
+  max-height: $maximum_height
+  min-height: $minimum_height
+  padding: min(max(calc($minimum_height / 8) , 1vh), calc($maximum_height / 8))
+
+#container div
+  align-items: center
+  display: flex
+  flex-direction: row
+  height: 100%
+
+#logo
+  flex-basis: 25%
+
+#logo a
+  height: 100%
+
+#logo a img
+  height: 100%
+  width: auto
+
+#navigation
+  display: flex
+  flex-basis: 50%
+  margin: auto 0
+
+#navigation a
+  margin: 0 auto
+
+#buttons
+  flex-basis: 25%
+
+#buttons *
+  margin: 0 auto
