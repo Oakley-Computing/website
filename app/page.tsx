@@ -1,6 +1,6 @@
 // Copyright Rob Gage 2025
 
-import { ApiResult, create_thread } from "@/app/actions";
+import {ApiResult, create_prompt, create_thread} from "@/app/actions";
 import Logo from "@/components/logo";
 import Dashboard from "@/components/dashboard";
 import {redirect} from "next/navigation";
@@ -12,8 +12,14 @@ export default function Page() {
         "use server"
         const create_thread_result: ApiResult<{ thread_id: number }> = await create_thread()
         if (create_thread_result.ok) {
-            redirect(`/threads/${create_thread_result.response.thread_id}`)
-        } else { form_data.set("PROMPT", ""); console.log(create_thread_result.status) }
+            const create_prompt_result: ApiResult<{ prompt_id: number }> = await create_prompt(
+                form_data.get("PROMPT"), create_thread_result.response.thread_id
+            )
+            if (create_prompt_result.ok) {
+                redirect(`/threads/${create_thread_result.response.thread_id}`)
+            }
+            else { form_data.set("PROMPT", "") }
+        } else { form_data.set("PROMPT", "") }
     }
     return <Dashboard>
         <div className="my-auto flex flex-col p-2 items-center">
