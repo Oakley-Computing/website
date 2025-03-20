@@ -29,9 +29,12 @@ async function create_prompt(text: string, thread_id: number): Promise<ApiResult
     else { return { ok: false, status: response.status } }
 }
 
-async function create_thread(): Promise<ApiResult<{ thread_id: number }>> {
+async function create_thread(text: string): Promise<ApiResult<{ thread_id: number, thread_url: string }>> {
     const response: Response = await fetch(`http://${API_SERVER_DATABASE}/threads/create`, {
         method: "POST",
+        body: JSON.stringify({
+            prompt_text: text,
+        }),
         headers: {
             "Content-Type": "application/json",
         }

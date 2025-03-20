@@ -9,7 +9,7 @@ export default function Page() {
             <DashboardPage header={
                 <h1>New Thread</h1>
             }>
-                test
+                <p>test</p>
             </DashboardPage>
         </div>
     </Dashboard>;
